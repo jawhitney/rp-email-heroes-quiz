@@ -1,0 +1,53 @@
+.rp-mobile {
+    position: absolute;
+    top: 0 !important;
+    overflow: hidden;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+    z-index: 70;
+    opacity: 1;
+    @include linearGradient(#333, $introTop);
+
+    .img-container {
+        margin: 0 auto $gutterWidth auto;
+
+        &.rp-logo-mobile {
+            max-width: 188px;
+            max-height: 42px;
+
+            img {
+                width: 188px;
+                min-height: 42px;
+            }
+        }
+
+        &.eh-logo-mobile {
+            max-width: 400px;
+            max-height: 134px;
+
+            img {
+                width: 400px;
+                min-height: 134px;
+            }
+        }
+    }
+
+    img {
+        margin: 0 auto;
+    }
+
+    p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40em;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1100px) {
+    .rp-mobile {
+        z-index: -10;
+        opacity: 0;
+    }
+}

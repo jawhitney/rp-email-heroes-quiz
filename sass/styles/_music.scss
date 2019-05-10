@@ -1,0 +1,47 @@
+.music-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    width: 100%;
+
+    li {
+        position: absolute;
+        right: $gutterWidth/2;
+        bottom: $gutterWidth/2;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 1.5em;
+        color: #fff;
+        border-radius: 20px;
+
+        span {
+            @include verticalHorizontalAlign();
+        }
+
+        .rp-sound {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            opacity: 0;
+            @include transition(opacity $rpTiming/2 $rpTimingFunction);
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        .rp-soundoff {
+            background-image: url('../images/icon-soundoff.svg');
+        }
+
+        .rp-soundon {
+            background-image: url('../images/icon-soundon.svg');
+        }
+    }
+}

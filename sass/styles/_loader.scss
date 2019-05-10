@@ -1,0 +1,79 @@
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../images/bg-stars-1.svg');
+
+    .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.stars-1 {
+            background-image: url('../images/bg-stars-1.svg');
+        }
+
+        &.stars-2 {
+            background-image: url('../images/bg-stars-2.svg');
+        }
+
+        &.stars-3 {
+            background-image: url('../images/bg-stars-3.svg');
+        }
+    }
+
+    .lightening-wrapper {
+        width: 150px;
+        height: 150px;
+        @include verticalHorizontalAlign();
+    }
+
+    .lightening-circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 8px solid rgba(255, 255, 255, 0.25);
+        border-right: 8px solid rgba(255, 255, 255, 0.25);
+        border-bottom: 8px solid rgba(255, 255, 255, 0.25);
+        border-left: 8px solid $heroBottom;
+        border-radius: 50%;
+        animation: rpBgRotate $rpTiming*1.25 linear infinite;
+    }
+
+    .lightening {
+        width: 100px;
+        height: 100px;
+        @include verticalHorizontalAlign();
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+#rpSectionWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    @include transition(opacity $rpTiming $rpTimingFunction);
+
+    &.loaded {
+        opacity: 1;
+    }
+}

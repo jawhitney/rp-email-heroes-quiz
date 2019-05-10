@@ -1,0 +1,129 @@
+section {
+    .rp-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 14;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include transition(opacity $rpTiming $rpTimingFunction);
+
+        &.show-quiz-results {
+            opacity: 0;
+            animation: none;
+        }
+    }
+
+    .rp-bg-stars-1 {
+        background-image: url('../images/bg-stars-1.svg');
+    }
+
+    .rp-bg-stars-2 {
+        background-image: url('../images/bg-stars-2.svg');
+        animation: rpBgOpacity 5s infinite;
+    }
+
+    .rp-bg-stars-3 {
+        background-image: url('../images/bg-stars-3.svg');
+        animation: rpBgOpacity 10s infinite;
+    }
+
+    .rp-bg-moon {
+        background-image: url('../images/bg-moon.svg');
+        background-position: 125px calc(100% - 100px);
+        background-size: 250px;
+    }
+
+    .rp-bg-sunburst {
+        opacity: 0;
+        @include transition(opacity $rpTiming $rpTimingFunction);
+
+        &.show-sunburst {
+            opacity: 1;
+        }
+
+        div {
+            animation: rpBgOpacityHalf 5s linear infinite;
+
+            &:before {
+                content: '';
+                position: absolute;
+                right: -1000px;
+                top: -1000px;
+                width: 2000px;
+                height: 2000px;
+                background-image: url('../images/bg-sunburst.svg');
+                background-size: 100%;
+                animation: rpBgRotate 100s linear infinite;
+            }
+        }
+    }
+
+    .rp-color-scheme,
+    .rp-color-scheme-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .rp-color-scheme-gradient {
+        z-index: 12;
+    }
+
+    .rp-color-scheme {
+        z-index: 10;
+        opacity: 0;
+        @include transition(opacity $rpTiming $rpTimingFunction);
+
+        &.rp-color-scheme-active {
+            opacity: 1;
+        }
+
+        &.rp-color-scheme-1 {
+            background-color: $xRayTop;
+        }
+
+        &.rp-color-scheme-2 {
+            background-color: $shapeShiftingTop;
+        }
+
+        &.rp-color-scheme-3 {
+            background-color: $espTop;
+        }
+
+        &.rp-color-scheme-4 {
+            background-color: $invincibilityTop;
+        }
+
+        &.rp-color-scheme-5 {
+            background-color: $telepathyTop;
+        }
+
+        .rp-color-scheme-gradient {
+            &.rp-color-scheme-1 {
+                @include linearGradient(rgba($xRayBottom,0), $xRayBottom);
+            }
+
+            &.rp-color-scheme-2 {
+                @include linearGradient(rgba($shapeShiftingBottom,0), $shapeShiftingBottom);
+            }
+
+            &.rp-color-scheme-3 {
+                @include linearGradient(rgba($espBottom,0), $espBottom);
+            }
+
+            &.rp-color-scheme-4 {
+                @include linearGradient(rgba($invincibilityBottom,0), $invincibilityBottom);
+            }
+
+            &.rp-color-scheme-5 {
+                @include linearGradient(rgba($telepathyBottom,0), $telepathyBottom);
+            }
+        }
+    }
+}

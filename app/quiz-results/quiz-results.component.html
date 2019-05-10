@@ -1,0 +1,28 @@
+<div class="result-wrapper">
+    <div *ngIf="correctAnswers == hero.quiz.questions.length">
+        <div class="result-wrapper-correct">
+            <h2 class="result-headline"><span class="power-icons power-icon-headline power-icons-{{!hero || !hero.colorScheme ? 'default' : hero.colorScheme}}"></span>{{hero.quiz.results.correctHeadline}}</h2>
+            <div [innerHtml]="hero.quiz.results.correct"></div>
+            <ul class="rp-share-results list-inline">
+                <li><span>Share your results:&nbsp;</span></li>
+                <!-- <li><rp-social [isInline]="true" [socialDesc]="socialDesc" [socialImage]="socialImage"></rp-social></li> -->
+            </ul>
+            <a (click)="showHeroesSection()" class="btn btn-white-hollow">Choose Another Super Power</a>
+        </div>
+    </div>
+    <div *ngIf="correctAnswers != hero.quiz.questions.length">
+        <div class="result-wrapper-incorrect">
+            <h2 class="result-headline"><span class="power-icons power-icon-headline power-icons-villain"></span>{{hero.quiz.results.incorrectHeadline}}</h2>
+            <div [innerHtml]="hero.quiz.results.incorrect"></div>
+        </div>
+        <div class="rp-row-featured-resources">
+            <div *ngFor="let resource of hero.quiz.resultsResources" class="rp-resource">
+                <a href="{{resource.url}}" target="_blank" (click)="clickResource(resource.url)">
+                    <div class="rp-resource-label">{{resource.label}}</div>
+                    <img class="img-responsive" src="{{resource.image}}" />
+                    <h4 class="rp-resource-title">{{resource.title}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Return Path | Guardians of the Email Universe</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.css">
+        <base href="/">
+        <meta name=msapplication-TileColor content="#ffffff">
+        <meta name=msapplication-TileImage content="https://digital.returnpath.com/rpstatic/images/icons/rp-favicon.png">
+        <link rel="icon" href="https://digital.returnpath.com/rpstatic/images/icons/rp-favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" href="https://digital.returnpath.com/rpstatic/images/icons/rp-favicon-192x192.png" sizes="192x192" />
+        <link rel="apple-touch-icon-precomposed" href="https://digital.returnpath.com/rpstatic/images/icons/rp-favicon-180x180.png" />
+        <meta name="msapplication-TileImage" content="https://digital.returnpath.com/rpstatic/images/icons/rp-favicon.png" />
+
+        <!-- Open Graph -->
+        <meta property="og:url" content="https://returnpath.com/superpowers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Guardians of the Email Universe" />
+        <meta property="og:description" content="What's your email superpower? Take our quiz and find out where your skills can take you." />
+        <meta property="og:image" content="https://digital.returnpath.com/rpstatic/images/social/emailheroes-socialshare-default.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <!-- Polyfill(s) for older browsers -->
+        <script src="js/vendor/shim.min.js"></script>
+        <script src="js/vendor/zone.min.js"></script>
+        <script src="js/vendor/Reflect.js"></script>
+        <script src="js/vendor/system.js"></script>
+
+        <!--[if IE 9]>
+        <script src="js/vendor/typedarray.js"></script>
+        <script src="js/vendor/Blog.js"></script>
+        <script src="js/vendor/formdata.js"></script>
+        <![endif]-->
+
+        <!-- Start Typekit Code -->
+        <script src="https://use.typekit.net/sdu4ygm.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <!-- End Typekit Code -->
+    </head>
+
+    <!-- 3. Display the application -->
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NPNFKM"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NPNFKM');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Loader -->
+        <div id="loader">
+            <div class="stars stars-1"></div>
+            <div class="stars stars-2"></div>
+            <div class="stars stars-3"></div>
+            <div class="lightening-wrapper">
+                <div class="lightening-circle"></div>
+                <div class="lightening"><img src="../images/lighteningbolt.svg" /></div>
+            </div>
+        </div>
+
+        <!-- App -->
+        <rp-emailheroes></rp-emailheroes>
+
+        <script src="js/systemjs.config.js"></script>
+        <script>
+        System.import('app').catch(function(err) { console.error(err); });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+/*
+ * Name: Utilities
+ * Description: Defines utility styles
+ */
+
+// Branding colors
+
+// Return Path Red
+.rp-rp-bg { background-color: $rp-red !important; }
+.rp-rp-text { color: $rp-red !important; }
+a.rp-rp-text:hover { color: rgba(203,51,59,0.8) !important; opacity: 1 !important; }
+.rp-rp-border { border-color: $rp-red !important; }
+
+// Email Optimization
+.rp-eo-bg { background-color: $rp-eo !important; }
+.rp-eo-text { color: $rp-eo !important; }
+a.rp-eo-text:hover { color: rgba(0,163,224,0.8) !important; opacity: 1 !important; }
+.rp-eo-border { border-color: $rp-eo !important; }
+
+// Email Fraud Protection
+.rp-efp-bg { background-color: $rp-efp !important; }
+.rp-efp-text { color: $rp-efp !important; }
+a.rp-efp-text:hover { color: rgba(0,62,81,0.8); opacity: 1 !important; }
+.rp-efp-border { border-color: $rp-efp !important; }
+
+// Consumer Insight
+.rp-ci-bg { background-color: $rp-ci !important; }
+.rp-ci-text { color: $rp-ci !important; }
+a.rp-ci-text:hover { color: rgba(227,82,5,0.8) !important; opacity: 1 !important; }
+.rp-ci-border { border-color: $rp-ci !important; }
+
+// Data Cloud
+.rp-dc-bg { background-color: $rp-red !important; }
+.rp-dc-text { color: $rp-red !important; }
+a.rp-dc-text:hover { color: rgba(203,51,59,0.8) !important; opacity: 1 !important; }
+.rp-dc-border { border-color: $rp-red !important; }
+
+// Dark Gray
+.rp-dark-gray-bg { background-color: $gray-base !important; }
+.rp-dark-gray-text { color: $gray-base !important; }
+a.rp-dark-gray-text:hover { color: rgba(75,76,78,0.8) !important; opacity: 1 !important; }
+.rp-dark-gray-border { border-color: $gray-base !important; }
+
+// Light Gray
+.rp-light-gray-bg { background-color: $gray-lightest !important; }
+.rp-light-gray-text { color: $gray-lightest !important; }
+a.rp-ight-gray-text:hover { color: rgba(227,227,227,0.8) !important; opacity: 1 !important; }
+.rp-light-gray-border { border-color: $gray-lightest !important; }
+
+// White
+.rp-white-bg { background-color: #fff !important; }
+.rp-white-text { color: #fff !important; }
+a.rp-white-text:hover { color: rgba(255,255,255,0.8) !important; opacity: 1 !important; }
+.rp-white-border { border-color: #fff !important; }
+
+// Yellow
+.rp-yellow-bg { background-color: $rp-yellow !important; }
+.rp-yellow-text { color: $rp-yellow !important; }
+a.rp-yellow-text:hover { color: rgba(244,184,71,0.8) !important; opacity: 1 !important; }
+.rp-yellow-border { border-color: $rp-yellow; }
+
+// Green
+.rp-green-bg { background-color: $rp-green !important; }
+.rp-green-text { color: $rp-green !important; }
+a.rp-green-text:hover { color: rgba(0,140,149,0.8) !important; opacity: 1 !important; }
+.rp-green-border { border-color: $rp-green !important; }
+
+// Triangles
+.rp-hero-trailing {
+    background: #fff url($rp-base-filepath + 'images/backgrounds/triangles-gray.svg') repeat center center;
+    height: 3em;
+}
+
+// Vertical spacers
+.rp-spacer-blank-50 {
+    height: $grid-gutter-width;
+}
+
+.rp-spacer-blank-25 {
+    height: 25px;
+}
+
+.rp-spacer-triangles-full-width,
+.rp-spacer-triangles-container-width {
+    background: #fff url($rp-base-filepath + 'images/backgrounds/triangles-gray.svg') repeat center center;
+    height: 3em;
+}
+
+.rp-spacer-horizontal-line {
+    margin: $grid-gutter-width 0;
+    height: 1px;
+    background-color: $gray-lighter;
+}
+
+// Border
+.rp-gray-border {
+    border: 1px solid $gray-lighter;
+}
+
+.solo-link {
+    text-decoration: none;
+    font-weight: 700;
+
+    &:after {
+        content: " »";
+    }
+}
+
+.legend-number {
+    display: inline-block;
+    height: 1.30435em;
+    width: 1.30435em;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    background: $rp-red;
+    border-radius: 2px;
+}
+
+.legend-number p strong {
+    font-size: 1.25em;
+    color: $rp-red;
+    font-family: $rp-serif;
+}
+
+@media (min-width: $screen-sm-min) {
+    .vertical-align-column {
+        @include vertical-align-relative();
+    }
+}

@@ -1,0 +1,73 @@
+@keyframes rpSectionHide {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes rpSectionShow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes rpBgOpacity {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes rpSmokeOpacity {
+    0% { opacity: 1; }
+    50% { opacity: 0.25; }
+    100% { opacity: 1; }
+}
+
+@keyframes rpBgOpacityHalf {
+    0% { opacity: .3; }
+    50% { opacity: .15; }
+    100% { opacity: .3; }
+}
+
+@keyframes rpBgRotate {
+    0% { @include transform(rotate(0deg)); }
+    100% { @include transform(rotate(360deg)); }
+}
+
+@keyframes rpCloudLeftRight {
+    0% { left: 0; }
+    50% { left: calc(100% - #{$cloudWidth}); }
+    100% { left: 0; }
+}
+
+@keyframes rpCloudRightLeft {
+    0% { left: calc(100% - #{$cloudWidth}); }
+    50% { left: 0; }
+    100% { left: calc(100% - #{$cloudWidth}); }
+}
+
+@keyframes rpBird {
+    100% { background-position: -300px 0px; }
+}
+
+@keyframes rpKillBird {
+    100% { background-position: -180px 0px; }
+}
+
+@keyframes rpBirdPos {
+    0% {
+        left: 0;
+        top: 100%;
+    }
+    50% {
+        left: 100%;
+        top: 0;
+    }
+    100% {
+        left: 100%;
+        top: 0;
+    }
+}
+
+@keyframes rpLightening {
+    @for $i from 0 through 100 {
+        #{$i}% { opacity: random(100)/100; }
+    }
+}

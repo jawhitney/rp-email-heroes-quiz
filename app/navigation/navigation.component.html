@@ -1,0 +1,26 @@
+<div class="navigation-wrapper" [class.show-nav]="section && section.template == 'heroes' || showQuiz || showQuizResults">
+    <!-- Logo -->
+    <div class="eh-logo-alt">
+        <a class="ride-the-lightening" (click)="enableEasterEggs()"></a>
+        <img src="images/logo-alt.svg" class="img-responsive" />
+    </div>
+
+    <!-- Back to Heores -->
+    <div class="btn-back-to-heroes pull-left" [class.quiz-show]="showQuiz || showQuizResults">
+        <a (click)="showHeroesSection()" class="btn btn-white-hollow">&#171; Back to Heroes</a>
+    </div>
+
+    <!-- Progress meter-->
+    <div class="progress-meter progress-meter-{{!hero || !hero.colorScheme ? 'default' : hero.colorScheme}} pull-right" [class.quiz-show]="showQuiz || showQuizResults">
+        <div  class="power-wrapper" [class.correct]="activeQuestion > 0 && quizResults[0]" [class.incorrect]="activeQuestion > 0 && !quizResults[0]">
+            <div class="power"></div>
+        </div>
+        <div  class="power-wrapper" [class.correct]="activeQuestion > 1 && quizResults[1]" [class.incorrect]="activeQuestion > 1 && !quizResults[1]">
+            <div class="power"></div>
+        </div>
+        <div  class="power-wrapper" [class.correct]="activeQuestion > 2 && quizResults[2]" [class.incorrect]="activeQuestion > 2 && !quizResults[2]">
+            <div class="power"></div>
+        </div>
+        <p class="answer-counter" *ngIf="correctAnswers >= 0">{{correctAnswers}} / {{totalQuestions}}</p>
+    </div>
+</div>

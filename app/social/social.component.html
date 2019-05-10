@@ -1,0 +1,9 @@
+<div [class.rp-social-share]="!isInline" [class.rp-social-share-inline]="isInline" [class.hide-social]="hideSocial">
+    <share-button (click)="shareClick('Twitter')" [button]='twButton' [url]="url" [title]="title" [description]="socialDesc" [image]="socialImage"></share-button>
+    <share-button (click)="shareClick('Facebook')" [button]='fbButton' [url]="url" [title]="title" [description]="socialDesc" [image]="socialImage"></share-button>
+    <share-button (click)="shareClick('LinkedIn')" [button]='liButton' [url]="url" [title]="title" [description]="socialDesc" [image]="socialImage"></share-button>
+    <share-button (click)="shareClick('Pinterest')" [button]='piButton' [url]="url" [title]="title" [description]="socialDesc" [image]="socialImage"></share-button>
+    <div *ngIf="!isInline" class="rp-social-hide" (click)="showHideSocial()">
+        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+    </div>
+</div>

@@ -1,0 +1,171 @@
+/*
+ * Name: Global
+ * Description: Defines global styles
+ */
+
+body {
+    letter-spacing: 0.015em;
+
+    @include define-device('xs');
+
+    &.rp-header-fixed {
+        padding-top: $header-height;
+    }
+
+    &.rp-background-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-family: $rp-serif;
+
+    &.rp-headline-line {
+        &:after {
+            @include headline-after();
+        }
+    }
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+.container {
+    max-width: $rp-container-width + $grid-gutter-width;
+}
+
+.rp-landing-page {
+    padding-top: $header-main-height;
+}
+
+a, button, input, img {
+    @include transition(all 0.2s ease-out);
+}
+
+a {
+    &:not(.btn) {
+        text-decoration: underline;
+
+        &:focus {
+           outline: none;
+        }
+    }
+
+    &:hover {
+        opacity: $rp-link-opacity;
+    }
+
+    &.learn-more {
+        text-decoration: none;
+
+        &:after {
+            content: ' »';
+        }
+    }
+}
+
+a, button {
+    -webkit-backface-visibility: hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.rp-pagination-next a,
+.rp-pagination-previous a {
+    font-size: 0.75em;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.rp-pagination-next a:after,
+.rp-pagination-previous a:before {
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border-top: 0.375em solid transparent;
+    border-bottom: 0.375em solid transparent;
+}
+
+.rp-pagination-next a:after {
+    margin-left: 0.5em;
+    border-left: 0.375em solid $rp-red;
+}
+
+.rp-pagination-previous a:before {
+    margin-right: 0.5em;
+    border-right: 0.375em solid $rp-red;
+}
+
+.path404 {
+    stroke-dasharray: 2138;
+    stroke-dashoffset: 2138;
+    @include animation(dash 8s ease-out forwards);
+}
+
+@-webkit-keyframes dash {
+    from { stroke-dashoffset: 2138; }
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes dash {
+    from { stroke-dashoffset: 2138; }
+    to { stroke-dashoffset: 0; }
+}
+
+.rp-404-content {
+    text-align: center;
+}
+
+@media (max-width: $screen-sm-min) {
+    h1 {
+        font-size: em(32);
+    }
+
+    .rp-bg-video {
+        display: none;
+    }
+
+    .d-modal {
+        display: none !important;
+    }
+
+    .rp-hero {
+        background-attachment: scroll !important;
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+    body {
+        @include define-device('sm');
+
+        .rp-background-image {
+            background-attachment: scroll !important;
+        }
+    }
+
+    .rp-bg-video {
+        @include background-video();
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    body {
+        @include define-device('md');
+    }
+}
+
+@media (min-width: $screen-lg-min) {
+    body {
+        @include define-device('lg');
+    }
+}

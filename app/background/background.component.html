@@ -1,0 +1,32 @@
+<!-- Stars -->
+<div *ngIf="template == 'intro'">
+    <div class="rp-bg rp-bg-stars-1"></div>
+    <div class="rp-bg rp-bg-stars-2"></div>
+    <div class="rp-bg rp-bg-stars-3"></div>
+</div>
+
+<!-- Moon -->
+<div *ngIf="template == 'intro'" class="rp-bg rp-bg-moon"></div>
+
+<!-- Sunburst -->
+<div *ngIf="template == 'quiz-results'" class="rp-bg rp-bg-sunburst" [class.show-sunburst]="(showQuizResults && incorrectAnswers == 0) || backToHeroes"><div></div></div>
+
+<!-- Hero -->
+<div *ngIf="template == 'quiz-results'" class="rp-results-hero-wrapper" [class.show-quiz-results]="showQuizResults">
+    <div *ngIf="incorrectAnswers == 0" class="rp-results-hero" [ngStyle]="{'background-image': 'url(' + hero.image + ')'}"></div>
+</div>
+
+<!-- Villian gradient -->
+<div *ngIf="template != 'intro'" class="rp-results-villain-gradient-wrapper" [class.show-quiz-results]="showQuizResults && incorrectAnswers > 0">
+    <div class="rp-results-villain-gradient"></div>
+</div>
+
+<!-- Villian smoke -->
+<div *ngIf="template == 'quiz-results'" class="rp-results-villain-smoke-wrapper" [class.show-quiz-results]="showQuizResults && incorrectAnswers > 0">
+    <div *ngIf="hero && correctAnswers != hero.quiz.questions.length" class="rp-results-villain-smoke"></div>
+</div>
+
+<!-- Villian -->
+<div *ngIf="template == 'quiz-results'" class="rp-results-villain-wrapper" [class.show-quiz-results]="showQuizResults">
+    <div *ngIf="incorrectAnswers > 0" class="rp-results-villain"></div>
+</div>

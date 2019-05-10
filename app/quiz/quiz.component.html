@@ -1,0 +1,20 @@
+<div *ngIf="hero" class="quiz-wrapper">
+    <div *ngFor="let question of hero.quiz.questions let q=index" class="question-wrapper" [class.active-question]="q == activeQuestion" [class.previous-question]="q == previousQuestion">
+        <p class="question">{{question.question}}</p>
+        <div *ngFor="let answer of question.answers let a=index" class="answer-wrapper">
+            <a class="answer answer-color-scheme-{{hero.colorScheme}}" [class.chosen]="q == previousQuestion && a == chosen" [class.correct]="question.answers[a].isCorrect" [class.incorrect]="!question.answers[a].isCorrect" (click)="answerQuestion(q, a)">
+                <div class="answer-background"></div>
+                <div class="answer-gradient"></div>
+                <span *ngIf="a == 0" class="rp-icon">A</span>
+                <span *ngIf="a == 1" class="rp-icon">B</span>
+                <span *ngIf="a == 2" class="rp-icon">C</span>
+            </a>
+            <p>{{answer.answer}}</p>
+        </div>
+    </div>
+</div>
+<ul class="quiz-indicators list-inline">
+    <li [class.active]="activeQuestion == 0"></li>
+    <li [class.active]="activeQuestion == 1"></li>
+    <li [class.active]="activeQuestion == 2"></li>
+</ul>

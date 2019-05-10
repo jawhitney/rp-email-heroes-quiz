@@ -1,0 +1,3 @@
+<div class="rp-bird-wrapper" [class.rp-bird-hunt-active]="birdHuntActive" (click)="shootBird()">
+    <div *ngFor="let bird of birds let b=index" class="rp-bird rp-bird-{{bird}}" [class.rp-shoot-bird]="burstStatus[bird]" [class.rp-hide-bird]="hideStatus[bird]" (click)="hitBird(bird)"></div>
+</div>

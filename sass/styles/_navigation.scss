@@ -1,0 +1,196 @@
+.rp-logo,
+.eh-logo-alt {
+    z-index: 55;
+    margin-top: $gutterWidth/2;
+    @include horizontalAlign();
+}
+
+.rp-logo {
+    max-width: 188px;
+    max-height: 42px;
+
+    img {
+        width: 188px;
+        min-height: 42px;
+    }
+}
+
+.eh-logo {
+    margin: $gutterWidth/2 auto 0 auto;
+    max-width: 400px;
+    max-height: 134px;
+
+    img {
+        width: 400px;
+        min-height: 134px;
+    }
+}
+
+.eh-logo-alt {
+    max-width: 450px;
+    max-height: 74px;
+
+    img {
+        width: 450px;
+        min-height: 74px;
+    }
+}
+
+.navigation-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    @include transition(top $rpTiming $rpTimingFunction);
+
+    &.show-nav {
+        top: 0;
+    }
+}
+
+.enable-bird-hunt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.btn-back-to-heroes,
+.progress-meter {
+    position: relative;
+    z-index: 55;
+    margin-top: $gutterWidth/2;
+    opacity: 0;
+    @include transition(opacity $rpTiming $rpTimingFunction);
+
+    &.quiz-show {
+        opacity: 1;
+    }
+}
+
+.btn-back-to-heroes {
+    margin-left: $gutterWidth;
+
+    .btn {
+        padding: 0;
+        border: none;
+    }
+}
+
+.answer-counter {
+    color: #fff;
+    margin-left: .5em;
+    float: right;
+    text-align: left;
+    font-weight: bold;
+    font-family: $rpSerif;
+    font-size: 1.8em;
+    margin-top: .4em;
+    min-width: 60px;
+}
+
+.progress-meter {
+    margin-right: $gutterWidth/2;
+
+    .power-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-left: 0.5em;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: transparent;
+        @include transition(background-color $rpTiming $rpTimingFunction);
+
+        .power {
+            opacity: 1;
+        }
+
+        &:before {
+            content: '';
+            z-index: 56;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            opacity: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            @include transition(opacity $rpTiming $rpTimingFunction);
+            @include verticalHorizontalAlign();
+        }
+
+        &.correct,
+        &.incorrect {
+            &:before {
+                opacity: 1;
+            }
+        }
+
+        &.correct:before {
+            background-image: url('../images/powericon-yes.svg');
+        }
+
+        &.incorrect:before {
+            background-image: url('../images/powericon-no.svg');
+        }
+
+        &.correct,
+        &.incorrect {
+            background-color: transparent !important;
+
+            .power {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .power {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: 25px;
+        background-image: url('../images/powericon-blank.svg');
+        opacity: 0.5;
+        @include transition(background-image $rpTiming $rpTimingFunction, opacity $rpTiming $rpTimingFunction);
+    }
+
+    &.progress-meter-1 {
+        .power {
+            background-image: url('../images/powericon-xray.svg');
+        }
+    }
+
+    &.progress-meter-2 {
+        .power {
+            background-image: url('../images/powericon-shapeshift.svg');
+        }
+    }
+
+    &.progress-meter-3 {
+        .power {
+            background-image: url('../images/powericon-invincibility.svg');
+        }
+    }
+
+    &.progress-meter-4 {
+        .power {
+            background-image: url('../images/powericon-perception.svg');
+        }
+    }
+
+    &.progress-meter-5 {
+        .power {
+            background-image: url('../images/powericon-telepathy.svg');
+        }
+    }
+}

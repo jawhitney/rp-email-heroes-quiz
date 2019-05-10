@@ -1,0 +1,119 @@
+section {
+    top: 100%;
+    left: 0;
+    z-index: 0;
+    background-color: $introTop;
+    color: #fff;
+    @include transition(left $rpTiming $rpTimingFunction, top $rpTiming $rpTimingFunction);
+
+    p {
+        margin: $gutterWidth/2 auto;
+    }
+
+    .content-wrapper {
+        width: 80%;
+        text-align: center;
+        z-index: 30;
+        @include verticalHorizontalAlign();
+    }
+
+    &.section-template-intro {
+        @include linearGradient($introTop, $introBottom);
+
+        p {
+            margin: $gutterWidth auto;
+        }
+    }
+
+    &.section-template-heroes,
+    &.section-template-quiz,
+    &.section-template-quiz-results {
+        background-color: $heroTop;
+        @include linearGradient($heroTop, $heroBottom);
+    }
+
+    &.section-template-heroes {
+        .btn {
+            margin-top: $gutterWidth/2;
+            opacity: 0;
+            visibility: hidden;
+
+            &.button-active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &.section-template-intro,
+    &.section-template-heroes {
+        p {
+            max-width: 50em;
+        }
+    }
+
+    &.section-template-quiz,
+    &.section-template-quiz-results {
+        top: 0;
+        left: 100%;
+    }
+
+    &.section-next {
+        top: 100%;
+        left: 0;
+    }
+
+    &.section-previous {
+        top: -100%;
+        left: 0;
+    }
+
+    &.section-heroes {
+        top: 0;
+        left: -100%;
+    }
+
+    &.section-active {
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+
+    &.hero-show {
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+
+    &.hero-hide {
+        top: 0;
+        left: -100%;
+    }
+
+    &.quiz-show {
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+
+    &.quiz-hide {
+        top: 0;
+        left: -100%;
+    }
+
+    &.quiz-results-show {
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+}
+
+@media (min-width: $breakpoint) {
+    section {
+        &.section-template-heroes {
+            p {
+
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    line-height: 24px;
+    @include linearGradient(#333, $introTop);
+}
+
+main,
+section,
+rp-emailheroes,
+rp-section,
+rp-color-scheme,
+rp-background {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.rp-lazy-images {
+    z-index: -10;
+    opacity: 0;
+}
+
+.btn {
+    position: relative;
+    z-index: 60;
+    font-family: $rpSerif;
+}
+
+.list-inline {
+    margin: 0 !important;
+    padding: 0 !important;
+}

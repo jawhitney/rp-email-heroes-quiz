@@ -1,0 +1,151 @@
+.rp-clouds{
+
+    .rp-cloud-static-back,
+    .rp-cloud-static-front,
+    .rp-cloud-front,
+    .rp-cloud-back {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 18;
+        width: 100%;
+
+        svg {
+            overflow: visible;
+            path {
+                @include transition(fill $rpTiming $rpTimingFunction);
+            }
+        }
+    }
+
+    .rp-cloud-front,
+    .rp-cloud-back {
+        width: $cloudWidth;
+    }
+
+    .rp-cloud-front {
+        animation: rpCloudRightLeft $cloudTiming linear infinite;
+    }
+
+    .rp-cloud-back {
+        animation: rpCloudLeftRight $cloudTiming linear infinite;
+    }
+
+    .rp-cloud-static-back,
+    .rp-cloud-back {
+        svg {
+            path {
+                fill: $cloudBackDefault;
+            }
+        }
+    }
+
+    .rp-cloud-static-front,
+    .rp-cloud-front {
+        svg {
+            path {
+                fill: $cloudFrontDefault;
+            }
+        }
+    }
+
+    &.rp-cloud-color-scheme-1 {
+        .rp-cloud-static-back,
+        .rp-cloud-back {
+            svg {
+                path {
+                    fill: $cloud1Dark;
+                }
+            }
+        }
+
+        .rp-cloud-static-front,
+        .rp-cloud-front {
+            svg {
+                path {
+                    fill: $cloud1Light;
+                }
+            }
+        }
+    }
+
+    &.rp-cloud-color-scheme-2 {
+        .rp-cloud-static-back,
+        .rp-cloud-back {
+            svg {
+                path {
+                    fill: $cloud2Dark;
+                }
+            }
+        }
+
+        .rp-cloud-static-front,
+        .rp-cloud-front {
+            svg {
+                path {
+                    fill: $cloud2Light;
+                }
+            }
+        }
+    }
+
+    &.rp-cloud-color-scheme-3 {
+        .rp-cloud-static-back,
+        .rp-cloud-back {
+            svg {
+                path {
+                    fill: $cloud3Dark;
+                }
+            }
+        }
+
+        .rp-cloud-static-front,
+        .rp-cloud-front {
+            svg {
+                path {
+                    fill: $cloud3Light;
+                }
+            }
+        }
+    }
+
+    &.rp-cloud-color-scheme-4 {
+        .rp-cloud-static-back,
+        .rp-cloud-back {
+            svg {
+                path {
+                    fill: $cloud4Dark;
+                }
+            }
+        }
+
+        .rp-cloud-static-front,
+        .rp-cloud-front {
+            svg {
+                path {
+                    fill: $cloud4Light;
+                }
+            }
+        }
+    }
+
+    &.rp-cloud-color-scheme-5 {
+        .rp-cloud-static-back,
+        .rp-cloud-back {
+            svg {
+                path {
+                    fill: $cloud5Dark;
+                }
+            }
+        }
+
+        .rp-cloud-static-front,
+        .rp-cloud-front {
+            svg {
+                path {
+                    fill: $cloud5Light;
+                }
+            }
+        }
+    }
+}

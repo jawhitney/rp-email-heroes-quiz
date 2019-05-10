@@ -1,0 +1,69 @@
+// Breakpoint
+$breakpoint: 1600px;
+
+// Dimensions
+$gutterWidth: 50px;
+
+// Animations
+$rpTiming: 1s;
+$rpTimingFunction: ease-in-out;
+
+// Fonts
+$rpSerif: "adelle",serif;
+$rpSans: "adelle-sans",sans-serif;
+
+// Section Colors
+$introTop: #003D51;
+$introBottom: #00A3E0;
+$heroTop: $introBottom;
+$heroBottom: #F4B847;
+
+// X-Ray Vision Colors
+$xRayTop: #E35205;
+$xRayBottom: #F4B847;
+
+// Shape Shifting Colors
+$shapeShiftingTop: #8C4799;
+$shapeShiftingBottom: #E35205;
+
+// Extra Sensory Perception Colors
+$espTop: #8A72B3;
+$espBottom: #008C95;
+$espBottomAlt: #7F5C87;
+
+// Invincibility Colors
+$invincibilityTop: #84BD00;
+$invincibilityBottom: #00965E;
+
+// Telepathy Colors
+$telepathyTop: #2DCCD3;
+$telepathyBottom: #00A3E0;
+
+// Clouds
+$cloudWidth: 80%;
+$cloudTiming: 60s;
+
+// Fire
+$fireWidth: 80%;
+
+$cloudBackDefault: $heroBottom;
+$cloudFrontDefault: #ef9a33;
+$cloud1Light: #ef9a33;
+$cloud1Dark: #e76e16;
+$cloud2Light: #c74e35;
+$cloud2Dark: #a24974;
+$cloud3Light: #2b809c;
+$cloud3Dark: #586595;
+$cloud4Light: #2ba23f;
+$cloud4Dark: #00915b;
+$cloud5Light: #1ebed6;
+$cloud5Dark: #009ed9;
+
+// Quiz
+$answerWidth: 100px;
+
+// Social
+$twitterBg: #00abf0;
+$facebookBg: #3a579a;
+$linkedinBg: #127bb6;
+$pinterestBg: #cd1c1f;

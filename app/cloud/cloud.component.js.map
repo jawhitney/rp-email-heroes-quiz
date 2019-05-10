@@ -1,0 +1,1 @@
+{"version":3,"file":"cloud.component.js","sourceRoot":"","sources":["cloud.component.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,sCAAiD;AAUjD;IAAA;IAEA,CAAC;IADY;QAAR,YAAK,EAAE;;uDAAqB;IADpB,cAAc;QAN1B,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,UAAU;YACpB,WAAW,EAAE,+BAA+B;SAC/C,CAAC;OAEW,cAAc,CAE1B;IAAD,qBAAC;CAAA,AAFD,IAEC;AAFY,wCAAc"}

@@ -1,0 +1,65 @@
+.power-icons {
+    display: block;
+    padding-bottom: .3em;
+
+    &.power-icon-headline {
+        display: inline !important;
+        padding-right: 0.5em;
+
+        &:before {
+            transform: translateY(30%);
+        }
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        background-image: url('../images/powericon-blank.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 2.5em;
+        height: 2.5em;
+    }
+     &.power-icons-1 {
+        &:before {
+            background-image: url('../images/powericon-grad-xray.svg');
+        }
+     }
+     &.power-icons-2 {
+        &:before {
+            background-image: url('../images/powericon-grad-shapeshift.svg');
+        }
+     }
+     &.power-icons-3 {
+        &:before {
+            background-image: url('../images/powericon-grad-invincibility.svg');
+        }
+     }
+     &.power-icons-4 {
+        &:before {
+            background-image: url('../images/powericon-grad-perception.svg');
+        }
+     }
+     &.power-icons-5 {
+        &:before {
+            background-image: url('../images/powericon-grad-telepathy.svg');
+        }
+     }
+     &.power-icons-villain {
+         &:before {
+            background-image: url('../images/powericon-grad-villain.svg');
+        }
+     }
+}
+
+@media (min-width: $breakpoint) {
+    .power-icons {
+        display: inline;
+        padding-bottom: 0;
+        padding-right: 0.5em;
+
+        &:before {
+            transform: translateY(30%);
+        }
+    }
+}

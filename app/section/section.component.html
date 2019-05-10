@@ -1,0 +1,115 @@
+<div id="rpSectionWrapper" [class.loaded]="loaded">
+    <!-- Lightening -->
+    <rp-lightening [lighteningActive]="lighteningActive"></rp-lightening>
+
+    <!-- Navigation -->
+    <rp-navigation [section]="activeSection" [hero]="activeHero" [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [activeQuestion]="activeQuestion" [quizResults]="quizResults" [correctAnswers]="correctAnswers" [totalQuestions]="totalQuestions" (onBackToHeroes)="onBackToHeroes($event)" (onRideTheLightening)="onRideTheLightening($event)" (onEnableBirdHunt)="onEnableBirdHunt($event)"></rp-navigation>
+
+    <!-- Music -->
+    <rp-music [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [backToHeroes]="backToHeroes" [totalQuestions]="totalQuestions" [correctAnswers]="correctAnswers"></rp-music>
+
+    <!-- Content Sections -->
+    <section *ngFor="let section of sections let s=index" id="section{{section.id}}" class="section-template-{{section.template}}" [class.section-active]="activeSection == section || !activeSection && s==0" [class.section-next]="nextSection == section" [class.section-previous]="previousSection == section" [class.section-heroes]="heroesSection == section">
+        <div *ngIf="section.template == 'intro'" class="rp-logo">
+            <img src="https://digital.returnpath.com/rpstatic/images/logos/rp-logo-white.svg" class="img-responsive" />
+        </div>
+
+        <!-- Color Scheme -->
+        <rp-color-scheme *ngFor="let hero of heroes" [hero]="hero" [activeHero]="activeHero"></rp-color-scheme>
+
+        <!-- Background -->
+        <rp-background [template]="section.template" [backToHeroes]="backToHeroes" [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [incorrectAnswers]="incorrectAnswers"></rp-background>
+
+        <!-- Bird -->
+        <rp-bird *ngIf="section.hasHeroes" [birdHuntActive]="birdHuntActive"></rp-bird>
+
+        <!-- Clouds -->
+        <rp-cloud *ngIf="section.hasHeroes" [colorScheme]="activeHero ? activeHero.colorScheme : 'default'"></rp-cloud>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Logo -->
+            <div *ngIf="section && section.template == 'intro'" class="eh-logo">
+                <img src="images/logo.svg" class="img-responsive" />
+            </div>
+
+            <!-- Heroes -->
+            <ul *ngIf="section.hasHeroes" class="list-inline">
+                <li *ngFor="let hero of heroes let h=index" id="hero{{hero.id}}" class="hero">
+                    <a (click)="setActiveHero(h)" class="hero-details" [class.active]="activeHero == hero">
+                        <div class="hero-image-wrapper">
+                            <img class="img-responsive hero-image" src="{{hero.logo}}">
+                            <img class="img-responsive hero-image-alt" src="{{hero.logoAlt}}">
+                        </div>
+                        <p class="hero-name"><span class="power-icons power-icons-{{!hero || !hero.colorScheme ? 'default' : hero.colorScheme}}"></span>{{hero.name}}</p>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Copy -->
+            <div *ngIf="section.hasHeroes">
+                <div class="hero-description-wrapper">
+                    <div class="default-description" [class.hide-default-description]="activeHero && !backToHeroes" [innerHtml]="section.copy"></div>
+                    <div *ngFor="let hero of heroes let h=index" id="hero{{hero.id}}" class="hero-description" [class.active-hero-description]="activeHero == hero">
+                        <p>{{hero.description}}</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div *ngIf="section && section.template == 'intro'">
+                <div [innerHtml]="section.copy"></div>
+            </div>
+            <!-- CTA -->
+            <a *ngIf="section.cta" class="btn" [class.btn-yellow-hollow]="section.template == 'intro'" [class.btn-white-hollow]="section.template != 'intro'" (click)="showNextSection(s)">{{section.cta}}</a>
+
+            <!-- CTA Heroes -->
+            <a *ngIf="section.template == 'heroes'" class="btn btn-white-hollow" [class.button-active]="continueToQuiz" (click)="showHeroQuizSection(s)">Continue</a>
+        </div>
+    </section>
+
+    <!-- Hero Quiz Sections -->
+    <section *ngFor="let hero of heroes" id="heroQuizSection{{hero.id}}" class="section-template-quiz color-scheme-{{colorScheme}}" [class.quiz-show]="activeHero == hero && showQuiz" [class.quiz-hide]="activeHero == hero && showQuizResults">
+        <!-- Color Scheme -->
+        <rp-color-scheme [hero]="hero" [activeHero]="activeHero"></rp-color-scheme>
+
+        <!-- Background -->
+        <rp-background [template]="'quiz'" [backToHeroes]="backToHeroes" [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [incorrectAnswers]="incorrectAnswers"></rp-background>
+
+        <!-- Cityscape -->
+        <rp-cityscape [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [colorScheme]="hero.colorScheme"></rp-cityscape>
+
+        <!-- Clouds -->
+        <rp-cloud [colorScheme]="activeHero ? activeHero.colorScheme : 'default'"></rp-cloud>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Headline -->
+            <h2 class="quiz-headline"><span class="power-icons power-icon-headline power-icons-{{!hero || !hero.colorScheme ? 'default' : hero.colorScheme}}"></span>{{hero.questionHeadline}}</h2>
+
+            <!-- Quiz -->
+            <rp-quiz [hero]="hero" [activeQuestion]="activeQuestion" [previousQuestion]="previousQuestion" (onQuestionAnswer)="onQuestionAnswer($event)" (onQuizEnd)="onQuizEnd($event)"></rp-quiz>
+        </div>
+    </section>
+
+    <!-- Hero Quiz Results Sections -->
+    <section *ngFor="let hero of heroes" id="heroQuizResultsSection{{hero.id}}" class="section-template-quiz-results color-scheme-{{colorScheme}}" [class.quiz-results-show]="activeHero == hero && showQuizResults">
+        <!-- Color Scheme -->
+        <rp-color-scheme [hero]="hero" [activeHero]="activeHero"></rp-color-scheme>
+
+        <!-- Background -->
+        <rp-background [template]="'quiz-results'" [hero]="hero" [backToHeroes]="backToHeroes" [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [incorrectAnswers]="incorrectAnswers"></rp-background>
+
+        <!-- Cityscape -->
+        <rp-cityscape [showQuiz]="showQuiz" [showQuizResults]="showQuizResults" [colorScheme]="hero.colorScheme"></rp-cityscape>
+
+        <!-- Clouds -->
+        <rp-cloud [colorScheme]="activeHero ? activeHero.colorScheme : 'default'"></rp-cloud>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Quiz -->
+            <rp-quiz-results [hero]="hero" [showQuizResults]="showQuizResults" [correctAnswers]="correctAnswers" [socialDesc]="socialDesc" [socialImage]="socialImage" (onBackToHeroes)="onBackToHeroes($event)"></rp-quiz-results>
+        </div>
+    </section>
+</div>

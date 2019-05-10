@@ -1,0 +1,173 @@
+.rp-social-share {
+    width: 50px;
+    height: 184px;
+    z-index: 60;
+    @include verticalAlign();
+
+    &.hide-social {
+        button {
+            left: -40px;
+        }
+
+        .rp-social-hide {
+            margin-left: 0;
+            border-radius: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            @include transform(rotate(180deg));
+        }
+    }
+
+    .rp-social-hide {
+        position: relative;
+        display: inline-block;
+        margin: 8px 0 0 8px;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #fff;
+        border-radius: 12px;
+        color: #fff;
+        opacity: 0.8;
+        cursor: pointer;
+        @include transition(all $rpTiming/4 $rpTimingFunction);
+
+        span {
+            font-size: 12px;
+            @include verticalHorizontalAlign();
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.rp-social-share,
+.rp-social-share-inline {
+    share-button {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        max-height: 40px;
+
+        button {
+            position: relative;
+            left: 0;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            height: 40px;
+            background-color: transparent;
+            border-width: 0;
+            @include transition(all $rpTiming/4 $rpTimingFunction);
+
+            &.twitter {
+                background-color: $twitterBg !important;
+
+                &:hover {
+                    background-color: darken($twitterBg, 12%) !important;
+                }
+            }
+
+            &.facebook {
+                background-color: $facebookBg !important;
+
+                &:hover {
+                    background-color: darken($facebookBg , 12%) !important;
+                }
+            }
+
+            &.linkedin {
+                background-color: $linkedinBg !important;
+
+                &:hover {
+                    background-color: darken($linkedinBg , 12%) !important;
+                }
+            }
+
+            &.pinterest {
+                background-color: $pinterestBg !important;
+
+                &:hover {
+                    background-color: darken($pinterestBg , 12%) !important;
+                }
+            }
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            @include verticalHorizontalAlign();
+        }
+    }
+}
+
+.rp-social-share {
+    share-button {
+        max-width: 50px;
+
+        button {
+            width: 40px;
+
+            &:hover {
+                width: 50px;
+            }
+
+            &.twitter,
+            &.facebook,
+            &.linkedin,
+            &.pinterest {
+                &:hover {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+            }
+
+            &.twitter {
+                border-top-right-radius: 4px;
+            }
+
+            &.pinterest {
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
+}
+
+.rp-share-results {
+    margin: 35px 0 !important;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: top;
+
+        span {
+            display: inline-block;
+            height: 100%;
+            font-size: 1.25em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .rp-social-share-inline {
+        display: inline-block;
+        height: 100%;
+    }
+
+    share-button {
+        margin: 0 0.25em;
+        max-width: 75px;
+        max-height: 40px;
+
+        button {
+            width: 75px;
+            border-radius: 3px;
+        }
+    }
+}

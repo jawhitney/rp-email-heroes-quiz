@@ -1,0 +1,140 @@
+/*
+ * Name: Resources
+ * Description: Defines resources styles
+ */
+
+.rp-resource {
+    position: relative;
+    margin-bottom: $grid-gutter-width;
+
+    a {
+        display: inline-block;
+        color: $gray-base;
+        text-decoration: none;
+
+        &:hover {
+            .rp-resource-label {
+                opacity: 1;
+                background-color: $rp-red;
+            }
+
+            .rp-resource-title {
+                opacity: 1;
+                color: $rp-red;
+            }
+        }
+    }
+
+    a:not(.learn-more) {
+        display: block;
+        width: 100%;
+    }
+
+    .rp-resource-image {
+        border: 1px solid $gray-lighter;
+    }
+
+    .rp-resource-content {
+        padding: 0 1em;
+        color: $gray-base;
+    }
+
+    .rp-resource-title,
+    .rp-resource-copy {
+        margin: 0.5em 0;
+        line-height: 1.5em;
+    }
+
+    .rp-resource-title {
+        display: block;
+        margin-top: 0.4em;
+        color: $gray-base;
+        font-family: $rp-serif;
+        font-weight: 700;
+        font-size: 1.25em;
+    }
+
+    .rp-resource-link {
+        margin-bottom: 1em;
+        font-weight: bold;
+        color: $rp-red;
+
+        &:hover {
+            color: $rp-red;
+        }
+    }
+
+    .rp-resource-mark {
+        position: absolute;
+        top: $grid-gutter-width/4;
+        left: -$grid-gutter-width/4;
+        z-index: 1;
+        height: 35px;
+        font-size: em(12);
+        text-transform: uppercase;
+        color: #fff;
+
+        img {
+            float: left;
+            margin-right: -10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        span {
+            padding: 0 10px;
+            line-height: 35px;
+        }
+    }
+
+    .rp-resource-icon,
+    .rp-resource-label {
+        position: absolute;
+        top: $grid-gutter-width/4;
+        left: -$grid-gutter-width/4;
+        z-index: 1;
+    }
+
+    .rp-resource-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .rp-resource-label {
+        padding: 0.25em 0.75em;
+        background-color: $gray-base;
+        color: #fff;
+        font-size: em(12);
+        text-transform: uppercase;
+    }
+
+    .rp-resource-date-location {
+        color: $rp-gray9;
+        font-size: 0.75em;
+    }
+}
+
+.rp-row-resource-list {
+    .rp-resource {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 422px;
+        margin-bottom: $grid-gutter-width;
+
+        p {
+            &:before {
+                content: "";
+                display: block;
+                width: 4em;
+                height: 1px;
+                margin: .5em auto;
+                background: $gray-light;
+            }
+        }
+
+        .learn-more {
+            color: $rp-red;
+            font-weight: bold;
+        }
+    }
+}

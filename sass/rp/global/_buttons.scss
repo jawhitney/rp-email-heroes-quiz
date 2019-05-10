@@ -1,0 +1,102 @@
+/*
+ * Name: Buttons
+ * Description: Defines button styles
+ */
+
+.btn {
+    padding: 0 em(36,12);
+    height: em(50,12);
+    font-size: em(12);
+    font-weight: bold;
+    line-height: em(50,12);
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+
+    &:hover {
+        opacity: $rp-link-opacity;
+        color: #fff;
+    }
+
+    &:focus, &:active {
+        @include box-shadow(none);
+        outline: none;
+        color: #fff;
+    }
+
+    &.btn-rp {
+        @include rp-button($rp-red);
+    }
+
+    &.btn-rp-hollow {
+        @include rp-button-hollow($rp-red);
+    }
+
+    &.btn-eo {
+        @include rp-button($rp-eo);
+    }
+
+    &.btn-eo-hollow {
+        @include rp-button-hollow($rp-eo);
+    }
+
+    &.btn-efp {
+        @include rp-button($rp-efp);
+    }
+
+    &.btn-efp-hollow {
+        @include rp-button-hollow($rp-efp);
+    }
+
+    &.btn-ci {
+        @include rp-button($rp-ci);
+    }
+
+    &.btn-ci-hollow {
+        @include rp-button-hollow($rp-ci);
+    }
+
+    &.btn-light-gray,
+    &.btn-gray {
+        background-color: $gray-lightest;
+        color: $gray-base;
+    }
+
+    &.btn-dark-gray {
+        background-color: $gray-base;
+        color: #fff;
+    }
+
+    &.btn-white-hollow {
+        @include rp-button-hollow(#fff);
+    }
+
+    &.btn-dark-gray-hollow {
+        @include rp-button-hollow($gray-base);
+    }
+
+    &.btn-light-gray-hollow {
+        @include rp-button-hollow($gray-lightest);
+    }
+
+    &.btn-yellow {
+        @include rp-button($rp-yellow);
+    }
+
+    &.btn-yellow-hollow {
+        @include rp-button-hollow($rp-yellow);
+    }
+
+    &.btn-green {
+        @include rp-button($rp-green);
+    }
+
+    &.btn-green-hollow {
+        @include rp-button-hollow($rp-green);
+    }
+
+    &.btn-white {
+        color: $gray-base;
+        background-color: #fff;
+    }
+}

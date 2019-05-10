@@ -1,0 +1,161 @@
+/*
+ * Name: Mixins
+ * Description: Defines mixins
+ */
+
+@function em($pixels, $context: $font-size-base) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1em;
+}
+
+@mixin define-device($device) {
+    &:after {
+        content: $device;
+        display: none;
+    }
+}
+
+@mixin box-shadow($bs) {
+    -webkit-box-shadow: $bs;
+    -ms-box-shadow: $bs;
+    -moz-box-shadow: $bs;
+    box-shadow: $bs;
+}
+
+@mixin transition($t) {
+    -webkit-transition: $t;
+    -ms-transition: $t;
+    -moz-transition: $t;
+    transition: $t;
+}
+
+@mixin transition-property($tp) {
+    -webkit-transition-property: $tp;
+    -ms-transition-property: $tp;
+    -moz-transition-property: $tp;
+    transition-property: $tp;
+}
+
+@mixin transition-duration($td) {
+    -webkit-transition-duration: $td;
+    -ms-transition-duration: $td;
+    -moz-transition-duration: $td;
+    transition-duration: $td;
+}
+
+@mixin transition-delay($td) {
+    -webkit-transition-delay: $td;
+    -ms-transition-delay: $td;
+    -moz-transition-delay: $td;
+    transition-delay: $td;
+}
+
+@mixin transition-timing-function($ttf) {
+    -webkit-transition-timing-function: $ttf;
+    -ms-transition-timing-function: $ttf;
+    -moz-transition-timing-function: $ttf;
+    transition-timing-function: $ttf;
+}
+
+@mixin transform-origin($to) {
+    -webkit-transform-origin: $to;
+    -ms-transform-origin: $to;
+    -moz-transform-origin: $to;
+    transform-origin: $to;
+}
+
+@mixin transform($t) {
+    -webkit-transform: $t;
+    -ms-transform: $t;
+    -moz-transform: $t;
+    transform: $t;
+}
+
+@mixin appearance($a) {
+    -webkit-appearance: $a;
+    -ms-appearance: $a;
+    -moz-appearance: $a;
+    appearance: $a;
+}
+
+@mixin vertical-align() {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin vertical-align-relative() {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-align() {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+@mixin vertical-horizontal-align() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@mixin headline-after() {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 1px;
+    margin: 0.75em auto 1em;
+    background: $gray-dark;
+}
+
+@mixin background-video() {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+}
+
+@mixin rp-button($color) {
+    background-color: $color;
+}
+
+@mixin rp-button-hollow($color) {
+    background-color: transparent;
+    border: 2px solid $color;
+    color: $color;
+    line-height: em(48,12);
+}
+
+@mixin filter($filter) {
+    -webkit-filter: $filter;
+    filter: $filter;
+}

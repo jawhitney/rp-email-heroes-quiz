@@ -1,0 +1,385 @@
+.quiz-headline {
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+.quiz-wrapper {
+    position: relative;
+}
+
+.question {
+    font-weight: 700;
+    max-width: 75%;
+}
+
+.quiz-wrapper,
+.question-wrapper {
+    min-height: 304px;
+}
+
+.question-wrapper {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 0;
+    width: 100%;
+    opacity: 0;
+    @include transition(left $rpTiming $rpTimingFunction, opacity $rpTiming $rpTimingFunction);
+
+    &.previous-question {
+        left: -100%;
+    }
+
+    &.active-question {
+        z-index: 40;
+        left: 0;
+        opacity: 1;
+    }
+
+    .question {
+        width: 100%;
+        height: auto;
+        min-height: 48px;
+        font-size: 1.2em;
+    }
+}
+
+.answer-wrapper {
+    display: inline-block;
+    padding: 0 $gutterWidth/2;
+    width: (100%/3);
+    vertical-align: top;
+
+    .answer-background,
+    .answer-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: $answerWidth*0.8;
+        height: $answerWidth*0.8;
+        border-radius: $answerWidth*0.8/2;
+        @include transition(opacity $rpTiming $rpTimingFunction);
+    }
+
+    .answer-background {
+        z-index: 42;
+    }
+
+    .answer-gradient {
+        z-index: 44;
+    }
+
+    .answer {
+        position: relative;
+        display: inline-block;
+        width: $answerWidth*0.8 + 4px;
+        height: $answerWidth*0.8 + 4px;
+        background-color: rgba(#fff, 0.25);
+        border: 2px solid transparent;
+        border-radius: $answerWidth*0.8/2 + 2px;
+        opacity: 1;
+        cursor: pointer;
+        color: #fff;
+        text-decoration: none;
+        @include transition(border-color $rpTiming $rpTimingFunction);
+
+        &.correct,
+        &.incorrect {
+            &:before {
+                content: '';
+                z-index: 47;
+                width: $answerWidth*0.8;
+                height: $answerWidth*0.8;
+                opacity: 0;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-image: url('../images/powericon-blank.svg');
+                @include transition(background-image $rpTiming/4 $rpTimingFunction, opacity $rpTiming/4 $rpTimingFunction);
+                @include verticalHorizontalAlign();
+            }
+
+            &.chosen {
+                &:before {
+                    opacity: 1;
+                }
+
+                span {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        &.correct:before {
+            background-image: url('../images/powericon-yes.svg');
+        }
+
+        &.incorrect:before {
+            background-image: url('../images/powericon-no.svg');
+        }
+
+        span {
+            position: relative;
+            z-index: 46;
+            font-family: $rpSerif;
+            font-weight: bold;
+            font-size: 2.5em;
+            @include verticalHorizontalAlign();
+            @include transition(opacity $rpTiming/4 $rpTimingFunction);
+        }
+
+        &:hover {
+            border-color: #fff;
+            opacity: 1;
+
+            .answer-background,
+            .answer-gradient {
+                opacity: 1;
+            }
+        }
+
+        &.answer-color-scheme-1 {
+            .answer-background {
+                background-color: $xRayBottom;
+            }
+
+            .answer-gradient {
+                @include linearGradient(rgba($xRayTop,0), $xRayTop);
+            }
+        }
+
+        &.answer-color-scheme-2 {
+            .answer-background {
+                background-color: $shapeShiftingBottom;
+            }
+
+            .answer-gradient {
+                @include linearGradient(rgba($shapeShiftingTop,0), $shapeShiftingTop);
+            }
+        }
+
+        &.answer-color-scheme-3 {
+            .answer-background {
+                background-color: $espBottom;
+            }
+
+            .answer-gradient {
+                @include linearGradient(rgba($espTop,0), $espTop);
+            }
+        }
+
+        &.answer-color-scheme-4 {
+            .answer-background {
+                background-color: $invincibilityBottom;
+            }
+
+            .answer-gradient {
+                @include linearGradient(rgba($invincibilityTop,0), $invincibilityTop);
+            }
+        }
+
+        &.answer-color-scheme-5 {
+            .answer-background {
+                background-color: $telepathyBottom;
+            }
+
+            .answer-gradient {
+                @include linearGradient(rgba($telepathyTop,0), $telepathyTop);
+            }
+        }
+    }
+}
+
+.quiz-indicators {
+    margin: $gutterWidth/2 0 0 0 !important;
+    padding: 0;
+
+    li {
+        margin: 0 0.25em;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 12px;
+        opacity: 0.25;
+        @include transition(opacity $rpTiming $rpTimingFunction);
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+.result-headline {
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+.result-wrapper-correct {
+    text-align: left;
+
+    p {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+        max-width: 60%;
+    }
+}
+
+.result-wrapper-incorrect {
+    .result-headline {
+        margin-top: $gutterWidth/2;
+    }
+
+    p {
+        max-width: 75%;
+    }
+}
+
+.rp-results-villain-gradient-wrapper,
+.rp-results-villain-smoke-wrapper,
+.rp-results-villain-wrapper,
+.rp-results-hero-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    @include transition(opacity $rpTiming $rpTimingFunction);
+
+    &.show-quiz-results {
+        opacity: 1;
+    }
+
+    .rp-results-villain-gradient,
+    .rp-results-villain-smoke {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 17;
+        width: 100%;
+        height: 100%;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+.rp-results-villain-gradient-wrapper,
+.rp-results-villain-smoke-wrapper {
+    z-index: 17;
+    height: 100%;
+}
+
+.rp-results-villain-gradient-wrapper {
+    .rp-results-villain-gradient {
+        @include linearGradient(#4B4C4E, rgba(#4B4C4E,0));
+    }
+}
+
+.rp-results-villain-smoke-wrapper {
+    .rp-results-villain-smoke {
+        background-image: url('../images/villain-smoke.svg');
+        animation: rpSmokeOpacity 5s linear infinite;
+    }
+}
+
+.rp-results-villain-wrapper,
+.rp-results-hero-wrapper {
+    z-index: 19;
+    height: 100%;
+
+    .rp-results-villain,
+    .rp-results-hero {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 19;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 40%;
+    }
+}
+
+.rp-results-villain-wrapper {
+    .rp-results-villain {
+        background-position: right bottom;
+        background-image: url('../images/bg-villain.svg');
+    }
+}
+
+.rp-results-hero-wrapper {
+    .rp-results-hero {
+        background-position: right bottom;
+    }
+}
+
+.rp-row-featured-resources {
+    .rp-resource {
+        display: inline-block;
+        margin: 0 2em;
+        max-width: 250px;
+        vertical-align: top;
+
+        .rp-resource-label,
+        .rp-resource-title {
+            @include transition(all 0.2s ease-out);
+        }
+
+        img {
+            background-color: #fff;
+        }
+
+        .rp-resource-title {
+            color: #fff;
+            font-size: 1em;
+        }
+
+        a:hover {
+            .rp-resource-title {
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpoint) {
+    .rp-row-featured-resources {
+        .rp-resource {
+            max-width: 300px;
+        }
+
+        .rp-resource-title {
+            font-size: 1.25em;
+        }
+    }
+
+    .answer-wrapper {
+        .answer-background,
+        .answer-gradient {
+            width: $answerWidth;
+            height: $answerWidth;
+            border-radius: $answerWidth/2;
+        }
+
+        .answer {
+            width: $answerWidth + 4px;
+            height: $answerWidth + 4px;
+            border-radius: $answerWidth/2 + 2px;
+
+            &.correct,
+            &.incorrect {
+                &:before {
+                    width: $answerWidth;
+                    height: $answerWidth;
+                }
+            }
+
+            span {
+                font-size: 3.5em;
+            }
+        }
+    }
+}

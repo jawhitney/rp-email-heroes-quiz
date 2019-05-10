@@ -1,0 +1,45 @@
+.rp-bird-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    animation: rpBirdPos $rpTiming*30 linear infinite;
+    overflow: visible;
+}
+
+.rp-bird {
+    position: absolute;
+    z-index: 17;
+    width: 30px;
+    height: 30px;
+    background: url('../images/bird.svg') left center;
+
+    @for $i from 0 through 9 {
+        #{$i}% { opacity: random(100)/100; }
+        &.rp-bird-#{$i} {
+            top: random(100) + %;
+            left: random(100) + %;
+            opacity: random(100)/100 * 0.5 + 0.25;
+            animation: rpBird $rpTiming/(2 - random(100)/100) steps(10) infinite;
+
+            &.rp-shoot-bird {
+                background: url('../images/bird-burst.png') left center;
+                animation: rpKillBird $rpTiming steps(6) 1;
+            }
+
+            &.rp-hide-bird {
+                display: none;
+            }
+        }
+    }
+}
+
+.rp-bird-hunt-active {
+    z-index: 50;
+
+    .rp-bird {
+        cursor: crosshair;
+        z-index: 50;
+    }
+}
